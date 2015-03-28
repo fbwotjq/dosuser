@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration level="DEBUG">
+
+	<appender name="HOUR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    	<file>${user.dir}/../logs/hour.log</file>
+    	<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+        	<FileNamePattern>${user.dir}/../logs/hour.%d{yyyyMMddHH}.log</FileNamePattern>
+        	<maxHistory>30</maxHistory>
+    	</rollingPolicy>
+    	<layout class="ch.qos.logback.classic.PatternLayout">
+        	<Pattern>%d{HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+    	</layout>
+	</appender>
+	
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss} %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+    
+	<logger name="com.yellomobile.search.keyword" level="INFO" >
+	    <appender-ref ref="HOUR" />
+	</logger>
+	
+	<logger name="org.springframework" level="INFO" >
+	    <appender-ref ref="HOUR" />
+	</logger>
+	
+	<logger name="io.netty" level="DEBUG" >
+	    <appender-ref ref="HOUR" />
+	</logger>
+	
+	<root level="DEBUG">
+        <appender-ref ref="STDOUT" />
+    </root>
+    
+</configuration>
