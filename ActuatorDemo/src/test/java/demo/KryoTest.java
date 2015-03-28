@@ -35,6 +35,7 @@ public class KryoTest {
 	private final int loop = 10000;
 	/**
 	 * tuning is evil.
+	 * https://github.com/eishay/jvm-serializers/wiki
 	 *                                    create     ser   deser   total   size  +dfl
 	 * kryo                                   63     655     838    1493    212   132
 	 * kryo-manual                            63     555     616    1171    211   131
